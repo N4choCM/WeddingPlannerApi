@@ -1,27 +1,30 @@
 package entities;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Users")
+@Table (name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long lId;
 
-    @Column (name = "Names")
     private String sName;
-    @Column (name = "Last Names")
     private String sLastName;
-    @Column (name = "Emails")
     private String sEmail;
-    @Column (name = "User Names")
     private String sUserName;
-    @Column (name = "Passwords")
     private String sPassword;
 
-    public User() {
+
+
+
+    public User () {
+
     }
 
     public User(Long lId, String sName, String sLastName, String sEmail, String sUserName, String sPassword) {
@@ -88,6 +91,8 @@ public class User {
                 ", sName='" + sName + '\'' +
                 ", sLastName='" + sLastName + '\'' +
                 ", sEmail='" + sEmail + '\'' +
+                ", sUserName='" + sUserName + '\'' +
+                ", sPassword='" + sPassword + '\'' +
                 '}';
     }
 }
