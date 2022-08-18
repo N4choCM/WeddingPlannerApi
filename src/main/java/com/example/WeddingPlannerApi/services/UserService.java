@@ -1,12 +1,12 @@
-package services;
+package com.example.WeddingPlannerApi.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import entities.User;
+import com.example.WeddingPlannerApi.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.UserRepository;
+import com.example.WeddingPlannerApi.repositories.UserRepository;
 
 @Service
 public class UserService {
