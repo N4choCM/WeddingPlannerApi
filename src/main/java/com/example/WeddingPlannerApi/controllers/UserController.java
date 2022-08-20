@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.WeddingPlannerApi.entities.User;
+import com.example.WeddingPlannerApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +20,15 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value="/users", method = RequestMethod.POST)
-    public User createUser(@RequestBody User user){
-        return userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user){
+
+        if(user.getlId() != null){
+            System.out.println("Trying to create a laptop with existing ID.");
+            return ResponseEntity.badRequest().build();
+        }
+
+        User newUser = userService.createUser(user);
+        return ResponseEntity.ok(newUser);
     }
 
     @RequestMapping(value="/users", method=RequestMethod.GET)
@@ -28,23 +36,35 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    //TODO: Test whether this works.
     @RequestMapping(value="/users/{lId}", method=RequestMethod.GET)
-    public Optional<User> readUserById(@PathVariable(value = "lId") Long lId){
-        return userService.getUserById(lId);
+    public ResponseEntity<User> readUserById(@PathVariable(value = "lId") Long lId){
+        Optional<User> temporalUser = userService.getUserById(lId);
+        return temporalUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @RequestMapping(value="/users/{lId}", method=RequestMethod.PUT)
-    public User updateUser(@PathVariable(value = "lId") Long lId, @RequestBody User userDetails) {
-        return userService.updateUser(lId, userDetails);
+    public ResponseEntity<User> updateUser(@PathVariable(value = "lId") Long lId, @RequestBody User userDetails) {
+
+        if(userDetails.getlId() == null){
+            return ResponseEntity.badRequest().build();
+        }
+
+        User updatedUser = userService.updateUser(lId, userDetails);
+        return ResponseEntity.ok(updatedUser);
     }
 
+    //TODO: Intentar mejorar mañana
     @RequestMapping(value="/users/{lId}", method=RequestMethod.DELETE)
-    public void deleteUser(@PathVariable(value = "lId") Long lId) {
+    public ResponseEntity<User> deleteUser(@PathVariable(value = "lId") Long lId) {
+        UserRepository userRepository = null;
+        if(!userRepository.existsById(lId)){
+            return ResponseEntity.notFound().build();
+        }
+
         userService.deleteUser(lId);
+        return ResponseEntity.noContent().build();
     }
 
-    //TODO: Test whether this works.
     @RequestMapping(value="/users", method=RequestMethod.DELETE)
     public void deleteAll() {
         userService.deleteAll();
