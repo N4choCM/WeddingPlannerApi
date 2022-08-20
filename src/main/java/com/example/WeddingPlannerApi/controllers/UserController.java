@@ -8,13 +8,7 @@ import com.example.WeddingPlannerApi.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.WeddingPlannerApi.services.UserService;
 
 @RestController
@@ -24,32 +18,23 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping ("/user")
-    private ResponseEntity<User> create (@RequestBody User user){
-        User temporalUser = userService.createUser(user);
-
-        //TODO: Check in the browser if the URI bellow works.
-        try{
-            return ResponseEntity.created(new URI("/api/user" + temporalUser.getlId())).body(temporalUser);
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        }
+    @RequestMapping(value="/users", method = RequestMethod.POST)
+    public User createUser(@RequestBody User user){
+        return userService.createUser(user);
     }
 
-    @GetMapping ("/users")
-    private ResponseEntity<List<User>> findAllUsers (){
-        return ResponseEntity.ok(userService.getAllUsers());
+    @RequestMapping(value="/users", method=RequestMethod.GET)
+    public List<User> readUsers() {
+        return userService.getAllUsers();
     }
 
-    @GetMapping ("/user/{id}")
-    private ResponseEntity<Optional<User>> findUser (@PathVariable ("id") Long id){
-        return ResponseEntity.ok(userService.getUserById(id));
+    @RequestMapping(value="/users/{lId}", method=RequestMethod.PUT)
+    public User updateUser(@PathVariable(value = "lId") Long lId, @RequestBody User userDetails) {
+        return userService.updateUser(lId, userDetails);
     }
 
-    @DeleteMapping ("/user/{user}")
-    private ResponseEntity<Void> removeUser (@PathVariable ("user") User user){
-        userService.deleteUser(user);
-        //TODO: Check the return statement because I think it might be better a .noContent()
-        return ResponseEntity.ok().build();
+    @RequestMapping(value="/users/{lId}", method=RequestMethod.DELETE)
+    public void deleteUser(@PathVariable(value = "lId") Long lId) {
+        userService.deleteUser(lId);
     }
 }

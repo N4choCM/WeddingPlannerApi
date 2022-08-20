@@ -13,7 +13,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createUser (User user){
+    public User createUser(User user){
         return userRepository.save(user);
     }
 
@@ -25,7 +25,18 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public void deleteUser(User user){
-        userRepository.delete(user);
+    public User updateUser (Long lId, User userDetails){
+        User user = userRepository.findById(lId).get();
+        user.setsName(userDetails.getsName());
+        user.setsLastName(userDetails.getsLastName());
+        user.setsEmail(userDetails.getsEmail());
+        user.setsUserName(userDetails.getsUserName());
+        user.setsPassword(userDetails.getsPassword());
+
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(Long lId){
+        userRepository.deleteById(lId);
     }
 }
