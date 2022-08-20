@@ -28,6 +28,12 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    //TODO: Test whether this works.
+    @RequestMapping(value="/users/{lId}", method=RequestMethod.GET)
+    public Optional<User> readUserById(@PathVariable(value = "lId") Long lId){
+        return userService.getUserById(lId);
+    }
+
     @RequestMapping(value="/users/{lId}", method=RequestMethod.PUT)
     public User updateUser(@PathVariable(value = "lId") Long lId, @RequestBody User userDetails) {
         return userService.updateUser(lId, userDetails);
@@ -36,5 +42,11 @@ public class UserController {
     @RequestMapping(value="/users/{lId}", method=RequestMethod.DELETE)
     public void deleteUser(@PathVariable(value = "lId") Long lId) {
         userService.deleteUser(lId);
+    }
+
+    //TODO: Test whether this works.
+    @RequestMapping(value="/users", method=RequestMethod.DELETE)
+    public void deleteAll() {
+        userService.deleteAll();
     }
 }
