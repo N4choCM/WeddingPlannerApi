@@ -19,6 +19,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping(value="/users", method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody User user){
 
@@ -56,7 +59,6 @@ public class UserController {
     //TODO: Intentar mejorar mañana
     @RequestMapping(value="/users/{lId}", method=RequestMethod.DELETE)
     public ResponseEntity<User> deleteUser(@PathVariable(value = "lId") Long lId) {
-        UserRepository userRepository = null;
         if(!userRepository.existsById(lId)){
             return ResponseEntity.notFound().build();
         }
