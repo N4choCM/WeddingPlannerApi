@@ -1,10 +1,14 @@
 package com.example.WeddingPlannerApi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
-@Table (name = "users")
-public class User {
+@Table(name = "restaurant_owners")
+public class RestaurantOwner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,27 +24,26 @@ public class User {
     @Column(name = "EMAIL")
     private String sEmail;
 
-    @Column(name = "USER_NAME")
-    private String sUserName;
-
-    @Column(name = "PASSWORD")
-    private String sPassword;
-
     @Column(name = "PHONE")
     private Integer iPhone;
 
-    public User () {
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Restaurant restaurant;
 
+    public RestaurantOwner() {
     }
 
-    public User(Long lId, String sName, String sLastName, String sEmail, String sUserName, String sPassword, Integer iPhone) {
+    public RestaurantOwner(Long lId, String sName, String sLastName, String sEmail,
+                           Integer iPhone, Restaurant restaurant) {
         this.lId = lId;
         this.sName = sName;
         this.sLastName = sLastName;
         this.sEmail = sEmail;
-        this.sUserName = sUserName;
-        this.sPassword = sPassword;
         this.iPhone = iPhone;
+        this.restaurant = restaurant;
     }
 
     public Long getlId() {
@@ -75,22 +78,6 @@ public class User {
         this.sEmail = sEmail;
     }
 
-    public String getsUserName() {
-        return sUserName;
-    }
-
-    public void setsUserName(String sUserName) {
-        this.sUserName = sUserName;
-    }
-
-    public String getsPassword() {
-        return sPassword;
-    }
-
-    public void setsPassword(String sPassword) {
-        this.sPassword = sPassword;
-    }
-
     public Integer getiPhone() {
         return iPhone;
     }
@@ -101,13 +88,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "RestaurantOwner{" +
                 "lId=" + lId +
                 ", sName='" + sName + '\'' +
                 ", sLastName='" + sLastName + '\'' +
                 ", sEmail='" + sEmail + '\'' +
-                ", sUserName='" + sUserName + '\'' +
-                ", sPassword='" + sPassword + '\'' +
                 ", iPhone=" + iPhone +
                 '}';
     }
