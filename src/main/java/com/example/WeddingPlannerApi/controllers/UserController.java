@@ -26,7 +26,7 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody User user){
 
         if(user.getlId() != null){
-            System.out.println("Trying to create a laptop with existing ID.");
+            System.out.println("Trying to create a user with existing ID.");
             return ResponseEntity.badRequest().build();
         }
 
@@ -56,7 +56,6 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
 
-    //TODO: Intentar mejorar mañana
     @RequestMapping(value="/users/{lId}", method=RequestMethod.DELETE)
     public ResponseEntity<User> deleteUser(@PathVariable(value = "lId") Long lId) {
         if(!userRepository.existsById(lId)){
