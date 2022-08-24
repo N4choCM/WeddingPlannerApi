@@ -86,6 +86,14 @@ public class RestaurantOwner {
         this.iPhone = iPhone;
     }
 
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
     @Override
     public String toString() {
         return "RestaurantOwner{" +
