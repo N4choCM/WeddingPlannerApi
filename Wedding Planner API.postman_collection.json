@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "cac896e5-2cf2-49b3-9e0b-f31e684227cb",
+		"name": "Wedding Planner API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22117131"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"iPhone\": 628555666,\r\n        \"sEmail\": \"paula@example.com\",\r\n        \"sLastName\": \"Saldaña Sedeño\",\r\n        \"sName\": \"Paula\",\r\n        \"sPassword\": \"paulitabonita\",\r\n        \"sUserName\": \"Paulita_tri\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{ID}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{ID}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"lId\": 3,\r\n        \"sName\": \"Adriana\",\r\n        \"sLastName\": \"Saldaña Padilla\",\r\n        \"sEmail\": \"lsp@gmail.com\",\r\n        \"sUserName\": \"LuciaSP\",\r\n        \"sPassword\": \"jtfgl89\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/users/{ID}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WEDDINGS",
+			"item": [
+				{
+					"name": "/api/weddings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"sAddress\": \"C/ de los Pintores 17\",\r\n        \"bChristian\": true,\r\n        \"user\": {\r\n            \"lId\": 11,\r\n            \"sName\": \"Paula\",\r\n            \"sLastName\": \"Saldaña Sedeño\",\r\n            \"sEmail\": \"paula@example.com\",\r\n            \"sUserName\": \"Paulita_tri\",\r\n            \"sPassword\": \"paulitabonita\",\r\n            \"iPhone\": 628555666\r\n        },\r\n        \"restaurant\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/weddings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/weddings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/weddings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/weddings/{ID}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/weddings/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/weddings/{ID}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"lId\": 1,\r\n        \"sAddress\": \"C/Victoria 9\",\r\n        \"bChristian\": false,\r\n        \"user\": {\r\n            \"lId\": 1,\r\n            \"sName\": \"Nacho\",\r\n            \"sLastName\": \"Campos Martí\",\r\n            \"sEmail\": \"nachocamposmarti@gmail.com\",\r\n            \"sUserName\": \"N4choCM\",\r\n            \"sPassword\": \"root\",\r\n            \"iPhone\": 628523682\r\n        },\r\n        \"restaurant\": null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/weddings/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/weddings",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/weddings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/weddings/{ID}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/weddings/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"weddings",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RESTAURANTS",
+			"item": [
+				{
+					"name": "/api/restaurants",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sName\": \"El Mesón del Buen Comer\",\r\n    \"sAddress\": \"Avenida de la Constitución 1\",\r\n    \"bVeganMenu\": true,\r\n    \"bKidsMenu\": true,\r\n    \"bCeliacMenu\": true,\r\n    \"bWelcomeCocktel\": true,\r\n    \"sStarters\": \"Croquetas\",\r\n    \"sMainDish\": \"Parmesan Risotto\",\r\n    \"sDessert\": \"Chocolate Cake\",\r\n    \"iPhone\": 952436766,\r\n    \"wedding\": {\r\n        \"lId\": 12,\r\n         \"sAddress\": \"C/ de los Pintores 17\",\r\n        \"bChristian\": true,\r\n        \"user\": {\r\n            \"lId\": 12,\r\n            \"sName\": \"Paula\",\r\n            \"sLastName\": \"Saldaña Sedeño\",\r\n            \"sEmail\": \"paula@example.com\",\r\n            \"sUserName\": \"Paulita_tri\",\r\n            \"sPassword\": \"paulitabonita\",\r\n            \"iPhone\": 628555666\r\n        },\r\n        \"restaurant\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/restaurants",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurants",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurants/{ID}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurants/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurants/{ID}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lId\": 1,\r\n    \"sName\": \"El Empique\",\r\n    \"sAddress\": \"Plaza de la Constitución 1\",\r\n    \"bVeganMenu\": true,\r\n    \"bKidsMenu\": true,\r\n    \"bCeliacMenu\": true,\r\n    \"bWelcomeCocktel\": true,\r\n    \"sStarters\": \"Croquetas\",\r\n    \"sMainDish\": \"Iberian Stake with smashed potatoes\",\r\n    \"sDessert\": \"Chocolate Cake\",\r\n    \"iPhone\": 952435799,\r\n    \"wedding\": {\r\n        \"lId\": 1,\r\n        \"sAddress\": \"C/Victoria 12\",\r\n        \"bChristian\": false,\r\n        \"user\": {\r\n            \"lId\": 1,\r\n            \"sName\": \"Nacho\",\r\n            \"sLastName\": \"Campos Martí\",\r\n            \"sEmail\": \"nachocamposmarti@gmail.com\",\r\n            \"sUserName\": \"N4choCM\",\r\n            \"sPassword\": \"root\",\r\n            \"iPhone\": 628523682\r\n        },\r\n        \"restaurant\": null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/restaurants/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurants",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurants/{ID}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurants/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RESTAURANT_OWNERS",
+			"item": [
+				{
+					"name": "/api/restaurant_owners",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"sName\": \"Frau\",\r\n        \"sLastName\": \"Schneider\",\r\n        \"sEmail\": \"example11@example.com\",\r\n        \"iPhone\": 654389777,\r\n        \"restaurant\": {\r\n            \"lId\": 11,\r\n            \"sName\": \"El Mesón del Buen Comer\",\r\n            \"sAddress\": \"Avenida de la Constitución 1\",\r\n            \"bVeganMenu\": true,\r\n            \"bKidsMenu\": true,\r\n            \"bCeliacMenu\": true,\r\n            \"bWelcomeCocktel\": true,\r\n            \"sStarters\": \"Croquetas\",\r\n            \"sMainDish\": \"Parmesan Risotto\",\r\n            \"sDessert\": \"Chocolate Cake\",\r\n            \"iPhone\": 952436766,\r\n            \"wedding\": {\r\n                \"lId\": 12,\r\n                \"sAddress\": \"C/ de los Pintores 17\",\r\n                \"bChristian\": true,\r\n                \"user\": {\r\n                    \"lId\": 12,\r\n                    \"sName\": \"Paula\",\r\n                    \"sLastName\": \"Saldaña Sedeño\",\r\n                    \"sEmail\": \"paula@example.com\",\r\n                    \"sUserName\": \"Paulita_tri\",\r\n                    \"sPassword\": \"paulitabonita\",\r\n                    \"iPhone\": 628555666\r\n                },\r\n                \"restaurant\": null\r\n            }\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurant_owners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurant_owners/{ID}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurant_owners/{ID}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lId\": 11,\r\n    \"sName\": \"Frau\",\r\n    \"sLastName\": \"Schneider\",\r\n    \"sEmail\": \"example11@example.com\",\r\n    \"iPhone\": 654389767,\r\n    \"restaurant\": {\r\n        \"lId\": 11,\r\n        \"sName\": \"El Mesón del Buen Comer\",\r\n        \"sAddress\": \"Avenida de la Constitución 1\",\r\n        \"bVeganMenu\": true,\r\n        \"bKidsMenu\": true,\r\n        \"bCeliacMenu\": true,\r\n        \"bWelcomeCocktel\": true,\r\n        \"sStarters\": \"Croquetas\",\r\n        \"sMainDish\": \"Parmesan Risotto\",\r\n        \"sDessert\": \"Chocolate Cake\",\r\n        \"iPhone\": 952436766,\r\n        \"wedding\": {\r\n            \"lId\": 12,\r\n            \"sAddress\": \"C/ de los Pintores 17\",\r\n            \"bChristian\": true,\r\n            \"user\": {\r\n                \"lId\": 12,\r\n                \"sName\": \"Paula\",\r\n                \"sLastName\": \"Saldaña Sedeño\",\r\n                \"sEmail\": \"paula@example.com\",\r\n                \"sUserName\": \"Paulita_tri\",\r\n                \"sPassword\": \"paulitabonita\",\r\n                \"iPhone\": 628555666\r\n            },\r\n            \"restaurant\": null\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurant_owners",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/restaurant_owners/{ID}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/restaurant_owners/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"restaurant_owners",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
