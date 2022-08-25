@@ -27,8 +27,10 @@ public class Wedding {
     @JsonIgnore
     private User user;
 
-    @OneToOne(mappedBy = "wedding", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+    //@OneToOne(mappedBy = "wedding", fetch = FetchType.LAZY,
+            //cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "restaurant_id") //, nullable = false)
     private Restaurant restaurant;
 
     public Wedding() {

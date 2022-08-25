@@ -41,8 +41,8 @@ public class Restaurant {
     @Column(name = "Phone")
     private Integer iPhone;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "wedding_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "wedding_id")
     private Wedding wedding;
 
     public Restaurant() {
