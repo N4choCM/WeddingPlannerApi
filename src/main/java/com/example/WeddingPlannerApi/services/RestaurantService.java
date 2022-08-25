@@ -27,6 +27,8 @@ public class RestaurantService {
 
     public Restaurant updateRestaurant(Long lId, Restaurant restaurantDetails){
         Restaurant restaurant = restaurantRepository.findById(lId).get();
+        restaurant.setsName(restaurantDetails.getsName());
+        restaurant.setsAddress(restaurantDetails.getsAddress());
         restaurant.setiPhone(restaurantDetails.getiPhone());
         restaurant.setbCeliacMenu(restaurantDetails.isbCeliacMenu());
         restaurant.setbKidsMenu(restaurantDetails.isbKidsMenu());

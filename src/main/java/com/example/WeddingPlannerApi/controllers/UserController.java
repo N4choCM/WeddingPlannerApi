@@ -1,13 +1,11 @@
 package com.example.WeddingPlannerApi.controllers;
 
-import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 import com.example.WeddingPlannerApi.entities.User;
 import com.example.WeddingPlannerApi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.WeddingPlannerApi.services.UserService;

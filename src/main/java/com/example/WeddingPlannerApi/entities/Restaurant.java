@@ -11,6 +11,12 @@ public class Restaurant {
     @Column(name = "ID")
     private Long lId;
 
+    @Column(name = "name")
+    private String sName;
+
+    @Column(name = "address")
+    private String sAddress;
+
     @Column(name = "Vegan_menu")
     private boolean bVeganMenu;
 
@@ -42,9 +48,11 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(Long lId, boolean bVeganMenu, boolean bKidsMenu, boolean bCeliacMenu, boolean bWelcomeCocktel,
+    public Restaurant(Long lId, String sName, String sAddress, boolean bVeganMenu, boolean bKidsMenu, boolean bCeliacMenu, boolean bWelcomeCocktel,
                       String sStarters, String sMainDish, String sDessert, Integer iPhone, Wedding wedding) {
         this.lId = lId;
+        this.sName = sName;
+        this.sAddress = sAddress;
         this.bVeganMenu = bVeganMenu;
         this.bKidsMenu = bKidsMenu;
         this.bCeliacMenu = bCeliacMenu;
@@ -62,6 +70,22 @@ public class Restaurant {
 
     public void setlId(Long lId) {
         this.lId = lId;
+    }
+
+    public String getsName() {
+        return sName;
+    }
+
+    public void setsName(String sName) {
+        this.sName = sName;
+    }
+
+    public String getsAddress() {
+        return sAddress;
+    }
+
+    public void setsAddress(String sAddress) {
+        this.sAddress = sAddress;
     }
 
     public boolean isbVeganMenu() {
@@ -140,6 +164,8 @@ public class Restaurant {
     public String toString() {
         return "Restaurant{" +
                 "lId=" + lId +
+                ", sName='" + sName + '\'' +
+                ", sAddress='" + sAddress + '\'' +
                 ", bVeganMenu=" + bVeganMenu +
                 ", bKidsMenu=" + bKidsMenu +
                 ", bCeliacMenu=" + bCeliacMenu +
